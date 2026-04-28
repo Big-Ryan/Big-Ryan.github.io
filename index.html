@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan NGADJUI TOUKO — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#ffffff;--bg2:#f7f7f5;--bg3:#f0efe9;--text:#1a1a18;--text2:#5a5a55;--text3:#9a9a94;--border:#e2e2dc}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:58px}
+.nav-logo{font-family:"DM Mono",monospace;font-size:13px;font-weight:500;letter-spacing:0.05em;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:12px;font-family:"DM Mono",monospace;padding:7px 16px;background:var(--text);color:#fff;border-radius:5px;text-decoration:none;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.8}
+.hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4rem;padding:6rem 3rem 5rem;max-width:1040px;margin:0 auto}
+.hero-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:0.12em;color:var(--text3);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.hero-label::before{content:"";display:inline-block;width:20px;height:1px;background:var(--text3)}
+.hero-name{font-size:clamp(2.6rem,5.5vw,4rem);font-weight:300;line-height:1.05;letter-spacing:-0.025em;margin-bottom:0.5rem}
+.hero-name strong{font-weight:500}
+.hero-title{font-size:1rem;color:var(--text2);margin-bottom:1.75rem;font-weight:300}
+.hero-bio{max-width:520px;font-size:0.92rem;color:var(--text2);line-height:1.8;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;font-size:13px;font-weight:500;background:var(--text);color:#fff;border-radius:6px;text-decoration:none;transition:opacity 0.2s}
+.btn-primary:hover{opacity:0.82}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;font-size:13px;background:transparent;color:var(--text);border:0.5px solid var(--border);border-radius:6px;text-decoration:none;transition:background 0.2s}
+.btn-secondary:hover{background:var(--bg2)}
+.hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--bg3);display:block}
+section{padding:5rem 3rem;max-width:1040px;margin:0 auto}
+.section-label{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:0.13em;color:var(--text3);text-transform:uppercase;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border)}
+.skills-grid{display:flex;flex-direction:column;gap:1.25rem}
+.skill-row{display:flex;gap:1.5rem;align-items:flex-start}
+.skill-cat{font-family:"DM Mono",monospace;font-size:11px;color:var(--text3);width:130px;flex-shrink:0;padding-top:5px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:4px 10px;background:var(--bg3);color:var(--text2);border-radius:4px;font-family:"DM Mono",monospace}
+.tag.f{background:var(--text);color:#fff}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem}
+.project-card{border:0.5px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--bg);transition:border-color 0.2s,background 0.2s}
+.project-card:hover{border-color:#aaa;background:var(--bg2)}
+.project-card.featured{border-color:#c8c8c2;background:var(--bg2)}
+.project-card.featured:hover{border-color:#888}
+.ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.9rem}
+.pi{width:38px;height:38px;border-radius:8px;background:var(--bg3);border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.pb{font-size:10px;font-family:"DM Mono",monospace;padding:3px 8px;border-radius:3px;letter-spacing:0.05em;text-transform:uppercase}
+.ba{background:#e6f1fb;color:#185FA5}
+.bl{background:#eaf3de;color:#3B6D11}
+.bw{background:#FAEEDA;color:#854F0B}
+.pn{font-size:0.93rem;font-weight:500;margin-bottom:0.4rem}
+.pd{font-size:0.82rem;color:var(--text2);line-height:1.65;margin-bottom:1rem}
+.ps{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+.st{font-size:11px;font-family:"DM Mono",monospace;padding:2px 7px;background:var(--bg);border:0.5px solid var(--border);color:var(--text3);border-radius:3px}
+.card-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-preview{font-size:11px;font-family:"DM Mono",monospace;padding:5px 12px;background:var(--text);color:#fff;border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s}
+.btn-preview:hover{opacity:0.8}
+.pl{font-size:12px;color:var(--text3);text-decoration:none;display:inline-flex;align-items:center;gap:4px;font-family:"DM Mono",monospace;transition:color 0.2s}
+.pl:hover{color:var(--text)}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:150px 1fr;gap:2rem;padding:1.75rem 0;border-bottom:0.5px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.ed{font-family:"DM Mono",monospace;font-size:11px;color:var(--text3);padding-top:3px;line-height:1.6}
+.ec{font-size:15px;font-weight:500;margin-bottom:3px}
+.er{font-size:13px;color:var(--text2)}
+.et{font-size:10px;font-family:"DM Mono",monospace;margin-top:8px;padding:2px 8px;display:inline-block;border-radius:3px;letter-spacing:0.05em;text-transform:uppercase}
+.tc{background:#eaf3de;color:#3B6D11}
+.ts{background:var(--bg3);color:var(--text3)}
+.tf{background:#e6f1fb;color:#185FA5}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem}
+.contact-item{padding:1.25rem;border:0.5px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);transition:border-color 0.2s,background 0.2s;display:block}
+.contact-item:hover{border-color:#aaa;background:var(--bg2)}
+.cl{font-size:10px;font-family:"DM Mono",monospace;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px}
+.cv{font-size:13px;word-break:break-all}
+footer{border-top:0.5px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.fn{font-size:12px;font-family:"DM Mono",monospace;color:var(--text3)}
+.fl{display:flex;gap:1.5rem}
+.fl a{font-size:12px;font-family:"DM Mono",monospace;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.fl a:hover{color:var(--text)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;overflow-y:auto;padding:2rem 1rem}
+.modal-overlay.active{display:block}
+.modal-box{background:var(--bg);border-radius:12px;max-width:920px;margin:0 auto;overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--border)}
+.modal-title{font-size:14px;font-weight:500}
+.modal-close{background:none;border:none;cursor:pointer;font-size:20px;color:var(--text2);line-height:1;padding:4px 8px;border-radius:4px;transition:background 0.2s}
+.modal-close:hover{background:var(--bg3)}
+.modal-body{padding:1.5rem}
+.modal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.modal-grid img{width:100%;border-radius:6px;border:0.5px solid var(--border);cursor:pointer;transition:opacity 0.2s}
+.modal-grid img:hover{opacity:0.88}
+.modal-caption{font-size:11px;font-family:"DM Mono",monospace;color:var(--text3);margin-top:5px;text-align:center}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center}
+.lightbox.active{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:6px}
+.lb-close{position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:22px;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+@media(max-width:700px){
+  nav{padding:0 1.25rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;gap:2rem;padding:3rem 1.25rem}
+  .hero-photo{width:100px;height:100px}
+  section{padding:3rem 1.25rem}
+  .skill-row{flex-direction:column;gap:6px}
+  .skill-cat{width:auto}
+  .exp-item{grid-template-columns:1fr;gap:4px}
+  footer{padding:1.5rem 1.25rem;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">RNT</a>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projets</a>
+    <a href="#experience">Expérience</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="mailto:ryanisrald@gmail.com">Me contacter</a>
+</nav>
+
+<div class="hero">
+  <div>
+    <p class="hero-label">Ingénieur Logiciel · Douala, Cameroun</p>
+    <h1 class="hero-name">NGADJUI TOUKO<br><strong>Ryan</strong></h1>
+    <p class="hero-title">Software Engineer &nbsp;·&nbsp; Big Data &nbsp;·&nbsp; Business Intelligence</p>
+    <p class="hero-bio">Étudiant en 4ème année de cycle ingénieur à l'IUC et développeur freelance, je conçois des systèmes robustes — du backend REST aux pipelines Big Data distribués. Je combine une expertise technique solide avec une vraie passion pour la donnée : architecture, analyse et visualisation à grande échelle.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="https://www.linkedin.com/in/ryan-ngadjui-3617632a8" target="_blank">LinkedIn →</a>
+      <a class="btn-secondary" href="https://github.com/Big-Ryan" target="_blank">GitHub</a>
+      <a class="btn-secondary" href="mailto:ryanisrald@gmail.com">Email</a>
+    </div>
+  </div>
+  <div>
+    <img class="hero-photo" src="assets/photo.jpg" alt="Ryan NGADJUI TOUKO">
+  </div>
+</div>
+
+<section id="skills">
+  <p class="section-label">Compétences techniques</p>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="skill-cat">Langages</span><div class="skill-tags"><span class="tag f">Python</span><span class="tag f">Java</span><span class="tag f">TypeScript</span><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">CQL</span><span class="tag">MQL</span><span class="tag">HTML/CSS</span><span class="tag">R</span></div></div>
+    <div class="skill-row"><span class="skill-cat">Frameworks</span><div class="skill-tags"><span class="tag f">Django</span><span class="tag f">SpringBoot</span><span class="tag f">FastAPI</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Angular</span><span class="tag">Laravel</span><span class="tag">Swagger</span></div></div>
+    <div class="skill-row"><span class="skill-cat">Big Data</span><div class="skill-tags"><span class="tag f">Apache Spark</span><span class="tag f">Apache Kafka</span><span class="tag f">Hadoop HDFS</span><span class="tag">Debezium CDC</span><span class="tag">Talend</span></div></div>
+    <div class="skill-row"><span class="skill-cat">Bases de données</span><div class="skill-tags"><span class="tag f">Cassandra</span><span class="tag f">MongoDB</span><span class="tag f">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">SQLite</span></div></div>
+    <div class="skill-row"><span class="skill-cat">DevOps &amp; BI</span><div class="skill-tags"><span class="tag f">Docker</span><span class="tag f">Power BI</span><span class="tag">Nginx</span><span class="tag">Machine Learning</span><span class="tag">Data Mining</span></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">Projets</p>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div class="ph"><div class="pi">🛰️</div><span class="pb ba">Académique</span></div>
+      <p class="pn">IoT Météo Douala — Apache Cassandra</p>
+      <p class="pd">Système de surveillance météorologique IoT pour 10 quartiers de Douala. Cluster distribué 3 nœuds, 65 000+ mesures injectées à 908 lignes/s, benchmark Cassandra vs PostgreSQL, dashboard React + Power BI.</p>
+      <div class="ps"><span class="st">Cassandra 5</span><span class="st">FastAPI</span><span class="st">React</span><span class="st">Power BI</span><span class="st">Docker</span><span class="st">Python</span></div>
+      <div class="card-actions">
+        <button class="btn-preview" onclick="openModal('modal-meteo')">Aperçu →</button>
+        <a class="pl" href="https://github.com/Big-Ryan/IoT_Meteo" target="_blank">github ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card featured">
+      <div class="ph"><div class="pi">⚡</div><span class="pb ba">Académique</span></div>
+      <p class="pn">Pipeline Big Data Temps Réel</p>
+      <p class="pd">Pipeline CDC complet MySQL → Debezium → Kafka → HDFS → Spark Streaming. Données visibles dans Spark en moins de 5 secondes après un INSERT MySQL. Visualisation via Hue.</p>
+      <div class="ps"><span class="st">Hadoop</span><span class="st">Kafka</span><span class="st">Spark</span><span class="st">Debezium</span><span class="st">Docker</span><span class="st">MySQL</span></div>
+      <div class="card-actions">
+        <button class="btn-preview" onclick="openModal('modal-bigdata')">Architecture →</button>
+      </div>
+    </div>
+
+    <div class="project-card featured">
+      <div class="ph"><div class="pi">🏥</div><span class="pb ba">Académique</span></div>
+      <p class="pn">BI Maladies Infectieuses — Douala</p>
+      <p class="pd">Data warehouse épidémiologique sur 5 maladies et 6 arrondissements. Pipeline ETL Talend, 61 968 lignes, prédictions Prophet + ARIMA, dashboard Power BI 10 pages avec simulateur vaccinal What-If.</p>
+      <div class="ps"><span class="st">Talend</span><span class="st">MySQL</span><span class="st">Power BI</span><span class="st">Python</span><span class="st">Prophet</span><span class="st">ARIMA</span></div>
+      <div class="card-actions">
+        <button class="btn-preview" onclick="openModal('modal-bi')">Aperçu →</button>
+      </div>
+    </div>
+
+    <div class="project-card featured">
+      <div class="ph"><div class="pi">🎬</div><span class="pb ba">Académique</span></div>
+      <p class="pn">Movies Dashboard — Django + MongoDB</p>
+      <p class="pd">API REST complète (11 endpoints) avec dashboard interactif sur un catalogue MongoDB. Architecture Repository pattern, pipeline d'agrégation, interface Bootstrap + Chart.js.</p>
+      <div class="ps"><span class="st">Django</span><span class="st">MongoDB</span><span class="st">PyMongo</span><span class="st">DRF</span><span class="st">Chart.js</span></div>
+      <div class="card-actions">
+        <button class="btn-preview" onclick="openModal('modal-movies')">Aperçu →</button>
+        <a class="pl" href="https://github.com/Big-Ryan/movie_mongoDB" target="_blank">github ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">🧾</div><span class="pb bl">Fonctionnel</span></div>
+      <p class="pn">Gestion Tontines — Backend</p>
+      <p class="pd">API backend pour l'automatisation des associations et tontines. Gestion des membres, cycles de cotisation et attributions.</p>
+      <div class="ps"><span class="st">Django</span><span class="st">PostgreSQL</span><span class="st">REST API</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Tontine_Back" target="_blank">github.com/Big-Ryan/Tontine_Back ↗</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">✈️</div><span class="pb bw">En cours</span></div>
+      <p class="pn">Réservations Agence de Voyage</p>
+      <p class="pd">Plateforme permettant aux clients de réserver en ligne. Backend REST avec gestion des voyages, disponibilités et réservations.</p>
+      <div class="ps"><span class="st">SpringBoot</span><span class="st">MySQL</span><span class="st">Java</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Back_Agence" target="_blank">github.com/Big-Ryan/Back_Agence ↗</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">💬</div><span class="pb bl">Fonctionnel</span></div>
+      <p class="pn">Forum d'entraide</p>
+      <p class="pd">Application communautaire pour soumettre des problèmes et recevoir des réponses de ceux qui les ont déjà vécus.</p>
+      <div class="ps"><span class="st">PHP</span><span class="st">MySQL</span><span class="st">HTML/CSS</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Forum" target="_blank">github.com/Big-Ryan/Forum ↗</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">💊</div><span class="pb bl">Fonctionnel</span></div>
+      <p class="pn">Health Pharm — Gestion Pharmacie</p>
+      <p class="pd">Application de gestion de stock de médicaments. Suivi des inventaires et alertes de rupture de stock.</p>
+      <div class="ps"><span class="st">PHP</span><span class="st">MySQL</span><span class="st">HTML/CSS</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Health_Pharm" target="_blank">github.com/Big-Ryan/Health_Pharm ↗</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">📝</div><span class="pb bl">Fonctionnel</span></div>
+      <p class="pn">Blog — Plateforme d'articles</p>
+      <p class="pd">Application de publication et lecture d'articles avec gestion des auteurs et templates Blade.</p>
+      <div class="ps"><span class="st">Laravel</span><span class="st">MySQL</span><span class="st">Blade</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Blog" target="_blank">github.com/Big-Ryan/Blog ↗</a></div>
+    </div>
+
+    <div class="project-card">
+      <div class="ph"><div class="pi">🛒</div><span class="pb bw">Partiel</span></div>
+      <p class="pn">Monoshop — E-commerce</p>
+      <p class="pd">Site e-commerce avec catalogue produits et gestion du panier client.</p>
+      <div class="ps"><span class="st">PHP</span><span class="st">MySQL</span><span class="st">HTML/CSS</span></div>
+      <div class="card-actions"><a class="pl" href="https://github.com/Big-Ryan/Monoshop" target="_blank">github.com/Big-Ryan/Monoshop ↗</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <p class="section-label">Expérience</p>
+  <div class="exp-list">
+    <div class="exp-item"><span class="ed">Avr. 2026<br>— présent</span><div><p class="ec">Quantyx Systems UG</p><p class="er">Software Engineer Freelance</p><span class="et tc">Freelance · Actuel</span></div></div>
+    <div class="exp-item"><span class="ed">2025 · 3 mois</span><div><p class="ec">SkySoft Technology</p><p class="er">Stagiaire Développeur</p><span class="et ts">Stage</span></div></div>
+    <div class="exp-item"><span class="ed">2024 · 2 mois</span><div><p class="ec">SAAJE E&amp;C</p><p class="er">Stagiaire Développeur</p><span class="et ts">Stage</span></div></div>
+    <div class="exp-item"><span class="ed">2022 — présent</span><div><p class="ec">IUC — Institut Universitaire de la Côte</p><p class="er">Cycle Ingénieur Informatique · 4ème année (3IL 4)</p><span class="et tf">Formation</span></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <div class="contact-grid">
+    <a class="contact-item" href="mailto:ryanisrald@gmail.com"><p class="cl">Email</p><p class="cv">ryanisrald@gmail.com</p></a>
+    <a class="contact-item" href="https://www.linkedin.com/in/ryan-ngadjui-3617632a8" target="_blank"><p class="cl">LinkedIn</p><p class="cv">ryan-ngadjui-3617632a8</p></a>
+    <a class="contact-item" href="https://github.com/Big-Ryan" target="_blank"><p class="cl">GitHub</p><p class="cv">github.com/Big-Ryan</p></a>
+    <div class="contact-item"><p class="cl">Localisation</p><p class="cv">Douala, Cameroun</p></div>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">© 2026 NGADJUI TOUKO Ryan</span>
+  <div class="fl">
+    <a href="https://github.com/Big-Ryan" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ryan-ngadjui-3617632a8" target="_blank">LinkedIn</a>
+    <a href="mailto:ryanisrald@gmail.com">Email</a>
+  </div>
+</footer>
+
+<!-- MODAL IoT Météo -->
+<div class="modal-overlay" id="modal-meteo">
+  <div class="modal-box">
+    <div class="modal-header"><span class="modal-title">IoT Météo Douala — Aperçu</span><button class="modal-close" onclick="closeModal('modal-meteo')">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div><img src="assets/meteo_dashboard.jpg" onclick="openLightbox(this)" alt="Dashboard React"><p class="modal-caption">Dashboard React temps réel</p></div>
+        <div><img src="assets/meteo_powerbi1.png" onclick="openLightbox(this)" alt="Power BI stats"><p class="modal-caption">Power BI — statistiques capteurs</p></div>
+        <div><img src="assets/meteo_powerbi2.png" onclick="openLightbox(this)" alt="Power BI humidité"><p class="modal-caption">Power BI — humidité par quartier</p></div>
+        <div><img src="assets/meteo_console.png" onclick="openLightbox(this)" alt="Console CQL"><p class="modal-caption">Console CQL interactive</p></div>
+        <div><img src="assets/meteo_capteurs.png" onclick="openLightbox(this)" alt="Capteurs"><p class="modal-caption">Gestion des capteurs CRUD</p></div>
+        <div><img src="assets/meteo_insertion.png" onclick="openLightbox(this)" alt="Insertion"><p class="modal-caption">Insertion manuelle de mesures</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL Big Data -->
+<div class="modal-overlay" id="modal-bigdata">
+  <div class="modal-box">
+    <div class="modal-header"><span class="modal-title">Pipeline Big Data — Architecture</span><button class="modal-close" onclick="closeModal('modal-bigdata')">✕</button></div>
+    <div class="modal-body">
+      <div style="background:var(--bg2);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem">
+        <p style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);line-height:2.2">
+          <strong style="color:var(--text)">Résultat clé :</strong> INSERT dans MySQL → visible dans Spark Streaming en &lt; 5 secondes<br>
+          <strong style="color:var(--text)">Services Docker :</strong> namenode · datanode · resourcemanager · nodemanager · historyserver · zookeeper · kafka · kafka-connect · mysql-master · mysql-slave · hue<br>
+          <strong style="color:var(--text)">Défi résolu :</strong> MySQL 8.4 a supprimé SHOW MASTER STATUS — contourné via <code style="background:var(--bg3);padding:1px 5px;border-radius:3px">snapshot.mode: never</code><br>
+          <strong style="color:var(--text)">Scripts PySpark :</strong> lecture HDFS · Spark SQL · agrégation + écriture · Spark Streaming Kafka
+        </p>
+      </div>
+      <svg viewBox="0 0 780 210" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#888"/></marker></defs>
+        <rect x="10" y="75" width="105" height="60" rx="6" fill="#f0efe9" stroke="#c8c8c2" stroke-width="1"/>
+        <text x="62" y="100" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#1a1a18">MySQL</text>
+        <text x="62" y="114" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#5a5a55">Master+Slave</text>
+        <text x="62" y="126" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#9a9a94">binlog CDC</text>
+        <rect x="155" y="75" width="105" height="60" rx="6" fill="#e6f1fb" stroke="#b5d4f4" stroke-width="1"/>
+        <text x="207" y="100" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#185FA5">Debezium</text>
+        <text x="207" y="114" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#185FA5">Kafka Connect</text>
+        <text x="207" y="126" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#378ADD">CDC connector</text>
+        <rect x="300" y="75" width="105" height="60" rx="6" fill="#FAEEDA" stroke="#FAC775" stroke-width="1"/>
+        <text x="352" y="100" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#854F0B">Apache Kafka</text>
+        <text x="352" y="114" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#854F0B">Topics dbz.*</text>
+        <text x="352" y="126" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#BA7517">Zookeeper</text>
+        <rect x="445" y="75" width="105" height="60" rx="6" fill="#eaf3de" stroke="#C0DD97" stroke-width="1"/>
+        <text x="497" y="100" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#3B6D11">Hadoop HDFS</text>
+        <text x="497" y="114" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#3B6D11">Sink Connector</text>
+        <text x="497" y="126" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#639922">JSON files</text>
+        <rect x="590" y="40" width="105" height="55" rx="6" fill="#EEEDFE" stroke="#CECBF6" stroke-width="1"/>
+        <text x="642" y="63" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#3C3489">PySpark</text>
+        <text x="642" y="77" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#3C3489">Streaming</text>
+        <text x="642" y="89" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#534AB7">+ Spark SQL</text>
+        <rect x="590" y="115" width="105" height="55" rx="6" fill="#FAECE7" stroke="#F5C4B3" stroke-width="1"/>
+        <text x="642" y="139" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#993C1D">Hue</text>
+        <text x="642" y="153" text-anchor="middle" font-size="9" font-family="DM Mono,monospace" fill="#993C1D">Visualisation</text>
+        <text x="642" y="165" text-anchor="middle" font-size="8" font-family="DM Mono,monospace" fill="#D85A30">HDFS Browser</text>
+        <line x1="115" y1="105" x2="153" y2="105" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="260" y1="105" x2="298" y2="105" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="405" y1="105" x2="443" y2="105" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="550" y1="92" x2="588" y2="72" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="550" y1="118" x2="588" y2="138" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+        <rect x="290" y="155" width="210" height="22" rx="4" fill="#eaf3de"/>
+        <text x="395" y="170" text-anchor="middle" font-size="10" font-family="DM Mono,monospace" fill="#3B6D11">INSERT → Spark visible en &lt; 5 secondes</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL BI Maladies -->
+<div class="modal-overlay" id="modal-bi">
+  <div class="modal-box">
+    <div class="modal-header"><span class="modal-title">BI Maladies Infectieuses — Aperçu</span><button class="modal-close" onclick="closeModal('modal-bi')">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div><img src="assets/bi_vuegen.png" onclick="openLightbox(this)" alt="Vue générale"><p class="modal-caption">Vue générale</p></div>
+        <div><img src="assets/bi_temporelle.png" onclick="openLightbox(this)" alt="Temporelle"><p class="modal-caption">Analyse temporelle 2019–2023</p></div>
+        <div><img src="assets/bi_prediction.png" onclick="openLightbox(this)" alt="Prédictions"><p class="modal-caption">Prédictions Prophet + ARIMA</p></div>
+        <div><img src="assets/bi_alerte.png" onclick="openLightbox(this)" alt="Alertes"><p class="modal-caption">Alertes épidémiques automatiques</p></div>
+        <div><img src="assets/bi_ire.png" onclick="openLightbox(this)" alt="IRE"><p class="modal-caption">Indice de Risque Épidémique</p></div>
+        <div><img src="assets/bi_saisonnalite.png" onclick="openLightbox(this)" alt="Saisonnalité"><p class="modal-caption">Corrélation saisonnalité / épidémies</p></div>
+        <div><img src="assets/bi_vaccination.png" onclick="openLightbox(this)" alt="Vaccination"><p class="modal-caption">Vaccination &amp; profils patients</p></div>
+        <div><img src="assets/bi_simulateur.png" onclick="openLightbox(this)" alt="Simulateur"><p class="modal-caption">Simulateur vaccinal What-If</p></div>
+        <div><img src="assets/bi_executive.png" onclick="openLightbox(this)" alt="Exécutive"><p class="modal-caption">Vue exécutive</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL Movies -->
+<div class="modal-overlay" id="modal-movies">
+  <div class="modal-box">
+    <div class="modal-header"><span class="modal-title">Movies Dashboard — Aperçu</span><button class="modal-close" onclick="closeModal('modal-movies')">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div><img src="assets/movies_dashboard.jpg" onclick="openLightbox(this)" alt="Dashboard"><p class="modal-caption">Dashboard global (3883 films · 1M notes)</p></div>
+        <div><img src="assets/movies_films.jpg" onclick="openLightbox(this)" alt="Films"><p class="modal-caption">Liste films avec filtres genre/année</p></div>
+        <div><img src="assets/movies_users.jpg" onclick="openLightbox(this)" alt="Utilisateurs"><p class="modal-caption">Utilisateurs &amp; statistiques</p></div>
+        <div><img src="assets/movies_filmdetail.jpg" onclick="openLightbox(this)" alt="Détail film"><p class="modal-caption">Détail film — répartition genres</p></div>
+        <div><img src="assets/movies_addfilm.jpg" onclick="openLightbox(this)" alt="Ajout film"><p class="modal-caption">Modal ajout de film</p></div>
+        <div><img src="assets/movies_userdetail.jpg" onclick="openLightbox(this)" alt="Détail user"><p class="modal-caption">Profil utilisateur &amp; notes</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow=''}
+function openLightbox(img){document.getElementById('lb-img').src=img.src;document.getElementById('lightbox').classList.add('active')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',function(e){if(e.target===this)closeModal(this.id)})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.active').forEach(m=>closeModal(m.id));closeLightbox()}});
+</script>
+</body>
+</html>

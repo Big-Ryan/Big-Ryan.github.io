@@ -36,26 +36,105 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,249,245,0.92);backdrop
 .nav-cta:hover{background:var(--rust)}
 
 /* ---------- HERO ---------- */
-.hero{max-width:1120px;margin:0 auto;padding:5.5rem 3.5rem 4.5rem;display:grid;grid-template-columns:1fr 220px;gap:4rem;align-items:end}
-.hero-kicker{font-size:14px;color:var(--rust);font-weight:500;margin-bottom:1.1rem}
-.hero-name{font-family:"Source Serif 4",serif;font-weight:500;font-size:clamp(2.4rem,4.8vw,3.6rem);line-height:1.08;letter-spacing:-0.01em;color:var(--ink);max-width:11ch}
-.hero-role{font-size:1.05rem;color:var(--ink2);margin-top:1.3rem;max-width:46ch}
-.hero-photo-wrap{position:relative}
-.hero-photo{width:100%;aspect-ratio:1;object-fit:cover;object-position:center top;border-radius:4px;filter:grayscale(15%)}
-.hero-photo-tag{position:absolute;bottom:-12px;left:-12px;background:var(--ink);color:var(--paper);font-size:11.5px;padding:5px 10px;border-radius:3px}
+.hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 5.5rem 3.5rem 4rem; /* Réduction du padding bas */
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 4rem;
+  align-items: start; /* Alignement en haut pour équilibrer la photo avec le texte */
+  border-bottom: 1px solid var(--line); /* Remet la ligne de séparation avec les compétences */
+}
 
-.hero-bottom{max-width:1120px;margin:0 auto;padding:0 3.5rem 4rem;display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;border-bottom:1px solid var(--line)}
-.hero-bio{max-width:560px;font-size:.98rem;color:var(--ink2);line-height:1.8}
-.hero-links{display:flex;gap:.6rem;flex-shrink:0}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;font-size:13.5px;font-weight:500;border-radius:3px;text-decoration:none;transition:all .2s;border:1px solid transparent}
-.btn-primary{background:var(--ink);color:var(--paper)}
-.btn-primary:hover{background:var(--rust)}
-.btn-ghost{border-color:var(--line);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--ink)}
-.hero-cert{display:inline-flex;align-items:center;gap:6px;margin-top:.9rem;font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;background:var(--paper2);padding:6px 12px;border-radius:4px;transition:background .2s,color .2s}
-.hero-cert:hover{background:var(--ink);color:var(--paper)}
-.cert-arrow{color:#0a66c2;font-weight:700}
-.hero-cert:hover .cert-arrow{color:#5aa7ea}
+.hero-kicker {
+  font-size: 14px;
+  color: var(--rust);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.hero-name {
+  font-family: "Source Serif 4", serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 11ch;
+}
+
+/* Enrobage du badge cert pour contrôler l'espace dessous */
+.hero-cert-wrap {
+  margin-top: 1.2rem;
+  margin-bottom: 1.6rem; /* Espace net avant le texte de la bio */
+}
+
+.hero-cert {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink2);
+  text-decoration: none;
+  background: var(--paper2);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background .2s, color .2s;
+}
+
+.hero-cert:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cert-arrow {
+  color: #0a66c2;
+  font-weight: 700;
+}
+
+.hero-cert:hover .cert-arrow {
+  color: #5aa7ea;
+}
+
+.hero-bio {
+  max-width: 580px;
+  font-size: 0.98rem;
+  color: var(--ink2);
+  line-height: 1.75;
+  margin-bottom: 2rem; /* Espace aéré avant les boutons LinkedIn/GitHub/Email */
+}
+
+.hero-links {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.hero-photo-wrap {
+  position: relative;
+}
+
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+  filter: grayscale(15%);
+}
+
+.hero-photo-tag {
+  position: absolute;
+  bottom: -12px;
+  left: -12px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11.5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
 
 /* ---------- SECTIONS ---------- */
 section{max-width:1120px;margin:0 auto;padding:4.5rem 3.5rem}
@@ -197,12 +276,14 @@ footer{border-top:1px solid #2a2b25;padding:1.6rem 3.5rem;display:flex;justify-c
     <p class="hero-kicker">Douala, Cameroun</p>
     <h1 class="hero-name">Ryan NGADJUI TOUKO</h1>
     
-    <a class="hero-cert" href="https://www.credly.com/badges/5cf836fd-2a28-4b59-9427-8e1f579d4f76/linked_in_profile" target="_blank">
-      AWS Certified Cloud Practitioner <span class="cert-arrow">→</span>
-    </a>
+    <div class="hero-cert-wrap">
+      <a class="hero-cert" href="https://www.credly.com/badges/5cf836fd-2a28-4b59-9427-8e1f579d4f76/linked_in_profile" target="_blank">
+        AWS Certified Cloud Practitioner <span class="cert-arrow">→</span>
+      </a>
+    </div>
 
     <p class="hero-bio">
-      Ingénieur logiciel (3iL / IUC Douala) spécialisé en Data Engineering, architectures distribuées (Big Data & NoSQL) et IoT. Je conçois des systèmes fiables capables de transformer des volumes complexes de données en pipelines de décision, du backend aux tableaux de bord analytiques.
+      Ingénieur en dernière année (3IL5) à l'IUC Douala, spécialisé en Data Engineering, Big Data & IoT. Je conçois des architectures complètes — pipelines de données distribués, bases relationnelles/NoSQL, APIs et tableaux de bord — avec une attention particulière portée à la fiabilité des systèmes.
     </p>
 
     <div class="hero-links">

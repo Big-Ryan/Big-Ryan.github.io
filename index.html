@@ -200,16 +200,39 @@ section{max-width:1120px;margin:0 auto;padding:4.5rem 3.5rem}
 .pcard-links button:hover{color:var(--rust);border-color:var(--rust)}
 
 /* ---------- EXPERIENCE ---------- */
-.exp-list{display:flex;flex-direction:column}
-.exp-item{display:grid;grid-template-columns:150px 1fr;gap:2.5rem;padding:2rem 0;border-top:1px solid var(--line)}
-.exp-item:first-child{border-top:none}
-.exp-date{font-size:13px;color:var(--ink3);padding-top:4px}
-.exp-role{font-size:1.02rem;font-weight:600;margin-bottom:.25rem}
-.exp-org{font-size:14px;color:var(--rust);margin-bottom:.9rem}
-.exp-desc{font-size:.87rem;color:var(--ink2);line-height:1.7}
-.exp-desc ul{margin:.5rem 0 0 1.1rem}
-.exp-desc li{margin-bottom:.35rem}
-.exp-tag{display:inline-block;font-size:10.5px;margin-top:.9rem;padding:2px 8px;border-radius:3px;background:var(--paper2);color:var(--ink3)}
+.exp-list { display: flex; flex-direction: column; }
+.exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 2.5rem; padding: 2rem 0; border-top: 1px solid var(--line); }
+.exp-item:first-child { border-top: none; }
+.exp-date { font-size: 13px; color: var(--ink3); padding-top: 4px; }
+.exp-role { font-size: 1.02rem; font-weight: 600; margin-bottom: .25rem; }
+.exp-org { font-size: 14px; color: var(--rust); margin-bottom: .9rem; }
+
+.exp-desc { font-size: .87rem; color: var(--ink2); line-height: 1.7; }
+.exp-intro { margin-bottom: .6rem; }
+
+/* Correction du style de la liste */
+.exp-desc ul {
+  list-style: none; /* Supprime les ronds noirs par défaut du navigateur */
+  padding-left: 0;   /* Aligne parfaitement avec le texte au-dessus */
+  margin-top: .4rem;
+}
+
+.exp-desc li {
+  position: relative;
+  padding-left: 1.2rem; /* Espace pour placer le tiret customisé */
+  margin-bottom: .4rem;
+}
+
+/* Création de tirets sobres et parfaitement alignés */
+.exp-desc li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--rust); /* Utilise ta couleur d'accentuation (rust) */
+  font-weight: 500;
+}
+
+.exp-tag { display: inline-block; font-size: 10.5px; margin-top: .9rem; padding: 2px 8px; border-radius: 3px; background: var(--paper2); color: var(--ink3); }
 
 /* ---------- CONTACT ---------- */
 .contact-section{background:var(--ink);color:var(--paper)}
@@ -530,14 +553,14 @@ footer{border-top:1px solid #2a2b25;padding:1.6rem 3.5rem;display:flex;justify-c
       <div>
         <p class="exp-role">Team Lead - EcoData Afrique</p>
         <p class="exp-org">Trends&Poor</p>
-        <p class="exp-desc">
-          Pilotage technique et coordination d'une équipe pluridisciplinaire (Data Collection, NLP, développement plateforme).
-          <ul>
-            <li>Reviewer sur trois chantiers parallèles : scraping de données régionales, intégration NLP, refonte du site vitrine</li>
-            <li>Conception d'un système combinant automatisation (Airflow), NLP et modèles analytiques originaux</li>
-            <li>Développement d'un Data Explorer sur 650K+ entreprises et 13M+ observations économiques</li>
-          </ul>
-        </p>
+        <div class="exp-desc">
+            <p class="exp-intro">Pilotage technique et coordination d'une équipe pluridisciplinaire (Data Collection, NLP, développement plateforme).</p>
+            <ul>
+              <li>Reviewer sur trois chantiers parallèles : scraping de données régionales, intégration NLP, refonte du site vitrine</li>
+              <li>Conception d'un système combinant automatisation (Airflow), NLP et modèles analytiques originaux</li>
+              <li>Développement d'un Data Explorer sur 650K+ entreprises et 13M+ observations économiques</li>
+            </ul>
+          </div>
         <span class="exp-tag">Stage · Terminé</span>
       </div>
     </div>

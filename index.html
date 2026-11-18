@@ -345,24 +345,26 @@ footer{border-top:1px solid #2a2b25;padding:1.6rem 3.5rem;display:flex;justify-c
       </div>
     </div>
     <div class="skill-col">
-      <p class="skill-col-label">Big Data</p>
+      <p class="skill-col-label">Big Data & BI</p>
       <div class="skill-col-items">
         <span class="skill-item">Apache Spark</span><span class="skill-item">Apache Kafka</span><span class="skill-item">Apache Airflow</span>
         <span class="skill-item dim">Hadoop HDFS</span><span class="skill-item dim">Debezium CDC</span><span class="skill-item dim">Talend</span>
+        <span class="skill-item dim">Power BI</span><span class="skill-item dim">Machine Learning</span><span class="skill-item dim">Data Mining</span>
       </div>
     </div>
     <div class="skill-col">
       <p class="skill-col-label">Données</p>
       <div class="skill-col-items">
-        <span class="skill-item">PostgreSQL</span><span class="skill-item">Cassandra</span><span class="skill-item">MongoDB</span>
+        <span class="skill-item">PostgreSQL / PostGIS</span><span class="skill-item">Cassandra</span><span class="skill-item">MongoDB</span>
         <span class="skill-item dim">Redis</span><span class="skill-item dim">MinIO</span><span class="skill-item dim">MySQL</span>
       </div>
     </div>
     <div class="skill-col">
-      <p class="skill-col-label">Cloud & BI</p>
+      <p class="skill-col-label">Cloud & DevOps</p>
       <div class="skill-col-items">
-        <span class="skill-item">AWS</span><span class="skill-item">Docker</span><span class="skill-item">Power BI</span>
-        <span class="skill-item dim">Nginx</span><span class="skill-item dim">Machine Learning</span><span class="skill-item dim">Data Mining</span>
+        <span class="skill-item">AWS</span><span class="skill-item">Docker</span><span class="skill-item">Terraform</span>
+        <span class="skill-item dim">Kubernetes</span><span class="skill-item dim">GitHub Actions</span><span class="skill-item dim">Oracle Cloud</span>
+        <span class="skill-item dim">Grafana</span><span class="skill-item dim">Nginx / Caddy</span>
       </div>
     </div>
   </div>
@@ -370,8 +372,59 @@ footer{border-top:1px solid #2a2b25;padding:1.6rem 3.5rem;display:flex;justify-c
 
 <section id="projects">
   <div class="section-head">
-    <h2 class="section-title">Projet phare</h2>
-    <p class="section-note">Une plateforme en production, pas un prototype de démonstration.</p>
+    <h2 class="section-title">Projets phares</h2>
+    <p class="section-note">Deux plateformes en production, pas des prototypes de démonstration.</p>
+  </div>
+
+    <div class="feature">
+    <div class="feature-top">
+      <div>
+        <p class="feature-eyebrow">En production - floodscope.duckdns.org</p>
+        <h3 class="feature-title">FloodScope</h3>
+        <p class="feature-desc">Plateforme d'observation radar satellitaire, de prévision des inondations à 72 h et de projection 2050 pour le Cameroun (Douala, Extrême-Nord). Réalisée en équipe de 5 pour le NASA Space Apps Challenge 2026 (Douala, défi « Dancing with the SARs »), où j'étais responsable du back-end et de l'infrastructure cloud : conception de l'API, sécurité, tests, CI et déploiement en production.</p>
+        <div class="feature-stats">
+          <div><p class="fstat-n">31</p><p class="fstat-l">routes API FastAPI</p></div>
+          <div><p class="fstat-n">207</p><p class="fstat-l">tests automatisés</p></div>
+          <div><p class="fstat-n">7</p><p class="fstat-l">chargeurs de données géospatiales</p></div>
+        </div>
+        <div class="feature-actions">
+          <a class="btn btn-primary" href="https://floodscope.duckdns.org" target="_blank">Voir la démo en direct</a>
+        </div>
+      </div>
+      <div class="feature-side">
+        <div>
+          <p class="feature-side-label">Ce que j'ai construit</p>
+          <div class="feature-side-list" style="margin-top:.7rem">
+            <div class="feature-side-item"><span>-</span><span>API FastAPI sur PostgreSQL/PostGIS</span></div>
+            <div class="feature-side-item"><span>-</span><span>7 chargeurs de données géospatiales avec contrôle d'intégrité</span></div>
+            <div class="feature-side-item"><span>-</span><span>Sécurité : rôles PostgreSQL séparés, Argon2id, JWT avec rotation, journal d'audit</span></div>
+            <div class="feature-side-item"><span>-</span><span>207 tests automatisés et CI GitHub Actions</span></div>
+            <div class="feature-side-item"><span>-</span><span>Déploiement sur Oracle Cloud : Docker Compose, Caddy, HTTPS</span></div>
+          </div>
+        </div>
+        <div>
+          <p class="feature-side-label">Stack</p>
+          <div class="feature-stack">
+            <span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">PostGIS</span>
+            <span class="chip">Docker Compose</span><span class="chip">Caddy</span><span class="chip">Oracle Cloud</span><span class="chip">GitHub Actions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-frame">
+      <div class="browser-chrome">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="browser-url">floodscope.duckdns.org</span>
+      </div>
+      <div class="demo-embed">
+        <iframe src="https://floodscope.duckdns.org" loading="lazy" title="Démo FloodScope" onerror="this.style.display='none';document.getElementById('demo-fallback-flood').style.display='flex'"></iframe>
+        <div class="demo-fallback" id="demo-fallback-flood" style="display:none;position:absolute;flex-direction:column;align-items:center;justify-content:center;inset:0">
+          <p style="color:#e8e6dc;font-size:15px">L'aperçu intégré n'est pas disponible ici</p>
+          <p>Certains navigateurs bloquent l'affichage d'un site tiers en cadre intégré</p>
+          <a href="https://floodscope.duckdns.org" target="_blank">Ouvrir floodscope.duckdns.org dans un nouvel onglet →</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="feature">
